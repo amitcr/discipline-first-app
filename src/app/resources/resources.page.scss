@@ -1,0 +1,6 @@
+.resources-grid ion-label p{padding:5px 0}
+.resources-detail-hero{position:relative;}
+.resources-hero-info{position:absolute;bottom: 0;padding: 20px 15px;}
+
+.resource-row{margin-bottom: 10px;padding-bottom: 15px;}
+.resource-row:after{position: absolute;content: "";background:#eeca88;height: 2px;display: block;width: 100px;left: 0;right: 0;margin: 0 auto;bottom: 0px;}

@@ -1,0 +1,9 @@
+{
+  "name": "discipleFirst",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "23f96e9f"
+}

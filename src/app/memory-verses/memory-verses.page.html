@@ -1,0 +1,40 @@
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/resources"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="text-center internal-hero" style='background:url(../assets/images/memory-verses.jpg);'>
+    <h3 *ngIf="data" class="span-underline internal-hero-title">
+      <span class="mery-verse-label">MEMORY VERSES</span>
+      <div class="book-title"><h4 [innerHTML]="data['book_title']"></h4></div>
+    </h3>
+  </section> 
+  <div *ngIf="data" class="px-1 item-line-before text-center verses-content">
+    <!-- <ion-label><span [innerHTML]="data['post_title']"></span></ion-label>
+    <div [innerHTML]="data['weekly_memory_verses']"></div> -->
+    <p>Tap on the scripture below to see the full Verse.<br/>Swipe to see each week's verse.</p>
+    <ion-slides *ngIf="book_weekly_memory_verse" pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let item of book_weekly_memory_verse" >
+        <!--<app-flip-card [style.background]="'url(' + item['background_image'] + ')'" [style.background-size]="'cover'"
+        [style.background-repeat] ="'no-repeat'" [class]="'verse-book-'+data['ID']+' '"> -->
+        <app-flip-card [class]="'verse-book-'+data['ID'] +' ' ">
+          <div class="flash-card-front" [style.background]="'url(' + item['background_image'] + ')'" [style.background-size]="'cover'" [style.background-repeat] ="'no-repeat'">
+            <div class="memory_verse_title">{{item.verse_title}}</div>
+            <div class="memory_verse_sub_title">{{item.week_counter}}</div>
+          </div>
+          <div [style.background]="'url(' + item['background_image'] + ')'" [style.background-size]="'cover'" [style.background-repeat] ="'no-repeat'" class="flash-card-back" [innerHTML]="item['verse_description']"></div>
+        </app-flip-card>
+      </ion-slide>
+    </ion-slides>
+    <div class="swipe-text">Swipe <ion-icon name="chevron-forward-outline"></ion-icon><ion-icon name="chevron-forward-outline"></ion-icon></div>
+  </div> 
+</ion-content>
